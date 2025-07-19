@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Vendas - Pack de Bio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* =================================
+           Configurações Globais e Reset
+        ================================= */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            /* Garante que o conteúdo não fique escondido atrás da barra do topo */
+            padding-top: 60px; /* Espaço para a barra de contagem regressiva */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Classes Utilitárias */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        /* =================================
+           Barra de Contagem Regressiva Fixa
+        ================================= */
+        .countdown-bar-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background-color: #000408;
+            color: red;
+            font-family: 'Roboto', Arial, sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+            border: solid red 4px;
+        }
+
+        .countdown-bar-fixed .countdown-timer {
+            background: #23233a;
+            color: red;
+            border-radius: 8px;
+            padding: 6px 18px;
+            margin-left: 18px;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.10);
+        }
+
+        /* =================================
+           Seção Principal (Hero)
+        ================================= */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            min-height: 300px;
+            width: 100%;
+            padding: 40px 0 80px 0;
+            background: linear-gradient(153deg, #000000 45%, #065287 100%);
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 72px;
+            font-weight: 400;
+            line-height: 1.2em;
+            max-width: 43%;
+        }
+
+        .hero-section .video-iframe {
+            border: none;
+            max-width: 100%;
+        }
+
+        .hero-section p {
+            max-width: 55%;
+            font-family: 'Globals', sans-serif; /* Assumindo uma fonte global */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* =================================
+           Seção de Imagens e Títulos
+        ================================= */
+        .image-showcase-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            padding: 20px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .image-showcase-section .section-title {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 600;
+            font-size: 28px;
+            color: #000000;
+        }
+        
+        .image-showcase-section .section-title span {
+            color: red;
+        }
+        
+        .image-showcase-section .showcase-image {
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        
+        .image-showcase-section .rounded-image {
+            border-radius: 36px;
+        }
+        
+        /* =================================
+           Seção de Depoimentos e Vantagens
+        ================================= */
+        .features-section {
+            background-color: #FFFFFF;
+            padding: 60px 20px;
+        }
+        
+        .features-section h2, .features-section h3 {
+             font-family: 'Poppins', sans-serif;
+             font-weight: 700;
+             color: #212529;
+             text-align: center;
+             margin-bottom: 20px;
+        }
+
+        .features-section h2 {
+            font-size: 35px;
+        }
+        
+        .features-section h3 {
+            font-size: 35px;
+            margin-top: 52px;
+        }
+        
+        .testimonials-carousel {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto; /* Permite rolar se as imagens não couberem */
+            padding-bottom: 15px;
+        }
+        
+        .testimonials-carousel img {
+            max-width: 30%;
+            border-radius: 12px;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding-left: 0;
+            max-width: 75%;
+            margin: 8px auto 0;
+        }
+        
+        .features-list li {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            color: #212529;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+        
+        .features-list .icon {
+            color: #42D202;
+            font-size: 26px;
+        }
+
+        /* Cards de Vantagens */
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            margin-top: 30px;
+        }
+        
+        .advantage-card {
+            background: linear-gradient(165deg, #000204 4%, #065083 69%);
+            color: #FFFFFF;
+            padding: 28px;
+            border-radius: 20px;
+            text-align: center;
+        }
+        
+        .advantage-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .advantage-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .advantage-card p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* =================================
+           Seção de Bônus
+        ================================= */
+        .bonus-section {
+            background-color: #f0f2f5;
+            padding: 60px 20px;
+        }
+        
+        .bonus-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #000;
+            margin-bottom: 30px;
+        }
+
+        .bonus-title span {
+            color: red;
+        }
+
+        .bonus-title #bonusTimer {
+            background-color: red;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 5px;
+        }
+        
+        .bonus-card {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            background: linear-gradient(132deg, #000000, #065287);
+            border-radius: 15px;
+            padding: 40px;
+            color: #FFFFFF;
+            margin: 20px auto;
+            max-width: 80%;
+            align-items: center;
+        }
+        
+        .bonus-card-image {
+            flex: 1 1 30%;
+            text-align: center;
+        }
+        
+        .bonus-card-image img {
+            max-width: 100%;
+            border-radius: 20px;
+        }
+        
+        .bonus-card-content {
+            flex: 1 1 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .bonus-card-content .bonus-tag {
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            color: #F3F401;
+            font-weight: 400;
+        }
+
+        .bonus-card-content h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            font-weight: 700;
+        }
+        
+        .bonus-card-content .price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+        }
+
+        .bonus-card-content .price del {
+            color: #e03130;
+        }
+        
+        .bonus-card-content .price .free {
+            color: #00FF00;
+        }
+        
+        .bonus-card-content p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* =================================
+           Seção de Preços
+        ================================= */
+        .pricing-section {
+            background-color: #000000;
+            padding: 60px 20px;
+            width: 100%;
+        }
+
+        .pricing-section .section-title {
+            color: #FFFFFF;
+            font-family: 'Poppins', sans-serif;
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background-color: #FFFFFF;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            flex: 1;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .pricing-card.pro {
+            border: 2px solid #DFBB16;
+            position: relative;
+        }
+        
+        .pricing-card .best-seller-tag {
+            color: #FF0000;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .pricing-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 35px;
+            font-weight: 400;
+        }
+        
+        .pricing-card .price-old {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+        }
+        .pricing-card .price-old del {
+            color: #e03130;
+        }
+        
+        .pricing-card .price-new {
+            font-family: 'Poppins', sans-serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: #0B9C00;
+            margin: -20px 0;
+        }
+
+        .pricing-card hr {
+            border: none;
+            border-top: 1px solid #BDBDBD;
+            width: 86%;
+            margin: 0 auto;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        .pricing-card ul li {
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .cta-button {
+            display: inline-block;
+            background-color: #32A300;
+            color: white;
+            padding: 20px 0;
+            text-decoration: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 25px;
+            font-weight: 400;
+            text-transform: uppercase;
+            border-radius: 15px;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+        }
+        
+        .pricing-card .cta-button:hover {
+            background-color: #288a00;
+        }
+
+        /* =================================
+           Seção de FAQ (Perguntas Frequentes)
+        ================================= */
+        .faq-section {
+            background: linear-gradient(165deg, #000204 62%, #065083 100%);
+            padding: 60px 20px;
+            width: 100%;
+        }
+
+        .faq-section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 35px;
+            color: #FFFFFF;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .faq-accordion-list {
+            max-width: 900px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        
+        .faq-accordion-item {
+            border-bottom: 1px solid #28283a;
+        }
+        
+        .faq-accordion-question {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 28px 56px 28px 12px;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            position: relative;
+            outline: none;
+            transition: background 0.2s;
+        }
+        
+        .faq-accordion-question:hover {
+            background: #23233a;
+        }
+        
+        .faq-accordion-icon {
+            position: absolute;
+            right: 24px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            color: #fff;
+            transition: transform 0.2s;
+        }
+        
+        .faq-accordion-item.open .faq-accordion-icon {
+            transform: translateY(-50%) rotate(45deg);
+        }
+        
+        .faq-accordion-answer {
+            color: #cfd8dc;
+            font-size: 17px;
+            border-radius: 8px;
+            margin: 0 12px 24px 12px;
+            padding: 20px 18px;
+            display: none;
+            animation: fadeIn 0.3s;
+        }
+        
+        .faq-accordion-item.open .faq-accordion-answer {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* =================================
+           Rodapé
+        ================================= */
+        footer {
+            background-color: #000000;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 40px 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+
+        /* =================================
+           Responsividade (Mobile)
+        ================================= */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 54px; /* Ajuste para barra menor */
+            }
+
+            .countdown-bar-fixed {
+                font-size: 16px; /* Ajustei o valor do JSON que era muito grande */
+                padding: 10px 0;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .countdown-bar-fixed .countdown-timer {
+                font-size: 18px; /* Ajustei o valor do JSON */
+                padding: 4px 12px;
+                margin-left: 0;
+            }
+
+            .hero-section h1 {
+                font-size: 54px;
+                max-width: 100%;
+            }
+            .hero-section p {
+                max-width: 100%;
+            }
+
+            .testimonials-carousel img {
+                 max-width: 80%; /* Mostra uma imagem e um pouco da próxima */
+            }
+
+            .features-list {
+                max-width: 100%;
+            }
+            
+            .bonus-card {
+                flex-direction: column;
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            .pricing-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .pricing-card {
+                width: 100%;
+                max-width: 90vw;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="countdown-bar-fixed">
+      O desconto termina em
+      <span class="countdown-timer" id="top-countdown-timer">12:34</span>
+    </div>
+
+    <section class="hero-section">
+        <h1>3500 páginas para a Bio do seu Insta: Edite em 6 minutos no Canva!</h1>
+        <iframe class="video-iframe" id="panda-16cd35f8-eadf-4fa4-ab35-01c54e07a38b" src="https://player-vz-c7fd9a01-916.tv.pandavideo.com.br/embed/?v=16cd35f8-eadf-4fa4-ab35-01c54e07a38b" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="460" fetchpriority="high"></iframe>
+        <p>Tenha acesso a um pack completo com 3500 páginas para a sua biografia do instagram: Edite em 6 minutos com o Canva!</p>
+    </section>
+
+    <section class="image-showcase-section container">
+        <p class="section-title">
+            <span>São mais de 3.500 páginas profissionais de alta conversão</span> no wordpress pra você fazer o que quiser!
+        </p>
+        <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/Whiteboard-_13_.webp" alt="Demonstração de páginas de alta conversão" class="showcase-image">
+    </section>
+
+    <section class="image-showcase-section container">
+        <p class="section-title">
+            <span>Você também vai receber mais de 100 páginas de biografia editáveis no Canvas</span>
+        </p>
+        <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/Whiteboard-_12_.webp" alt="Demonstração de páginas editáveis no Canva" class="showcase-image rounded-image">
+    </section>
+
+    <section class="features-section container">
+        <h2>Depoimentos</h2>
+        <div class="testimonials-carousel">
+            <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-24-at-10.57.34-1.jpeg" alt="Depoimento 1">
+            <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/WhatsApp-Image-2025-06-24-at-10.54.27-1.jpeg" alt="Depoimento 2">
+            <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/depoimento-2-1.jpeg" alt="Depoimento 3">
+            <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/depoimento-4-1.jpeg" alt="Depoimento 4">
+            <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/depoimento-1.jpeg" alt="Depoimento 5">
+        </div>
+
+        <h3>O que você irá receber?</h3>
+        <ul class="features-list">
+            <li><i class="fas fa-check-circle icon"></i><strong>+ de 100 templates</strong> de páginas editáveis diversos no canvas</li>
+            <li><i class="fas fa-check-circle icon"></i><strong>+ 3.500 páginas editáveis no wordpress</strong> para qualquer profissão</li>
+            <li><i class="fas fa-check-circle icon"></i><strong>Aulas</strong> de como você vai sair do zero e subir sua própria página de bio em 6 minutos</li>
+        </ul>
+        
+        <div class="advantages-grid">
+            <div class="advantage-card">
+                <i class="far fa-clock icon"></i>
+                <h4>Economize tempo</h4>
+                <p>Pare de gastar horas tentando montar sua página do zero. Tenha soluções prontas!</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-heart icon"></i>
+                <h4>Aumente o Engajamento</h4>
+                <p>Conquiste maior interação com artes profissionais e impactantes.</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-surprise icon"></i>
+                <h4>Design Impactante</h4>
+                <p>Entregue com orgulho uma página linda que demonstra seu alto nível profissional.</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-star icon"></i>
+                <h4>Tenha destaque</h4>
+                <p>Enquanto outros se apresentam com um Instagram desorganizado, você terá sua própria página profissional.</p>
+            </div>
+             <div class="advantage-card">
+                <i class="fas fa-download icon"></i>
+                <h4>Atualizações Permanentes</h4>
+                <p>Tenha acesso a todos os novos templates e melhorias sem custos adicionais.</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fab fa-whatsapp icon"></i>
+                <h4>Suporte Completo</h4>
+                <p>Conte com nossa ajuda para dúvidas sobre como utilizar e personalizar qualquer página.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="bonus-section container">
+        <h3 class="bonus-title">
+            <strong>
+                <span>3 Bônus Incríveis</span> para quem comprar nos próximos
+                <span id="bonusTimer">12:34</span> minutos
+            </strong>
+        </h3>
+        
+        <div class="bonus-card">
+            <div class="bonus-card-image">
+                <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/download-1.webp" alt="Bônus 1">
+            </div>
+            <div class="bonus-card-content">
+                <span class="bonus-tag">BÔNUS 1</span>
+                <h4>Pack de banners editáveis para sua página</h4>
+                <p class="price">Valor: <del>R$37,00</del> <span class="free">-> Grátis!</span></p>
+                <p>Tenha em mãos banners que vão ajudar você a estruturar sua página e montá-la do jeitinho que quiser com imagens gratuitas.</p>
+            </div>
+        </div>
+        
+        <div class="bonus-card">
+             <div class="bonus-card-image">
+                </div>
+            <div class="bonus-card-content">
+                <span class="bonus-tag">BÔNUS 2</span>
+                <h4>Elementos HTML personalizados para Wordpress</h4>
+                <p class="price">Valor: <del>R$37,00</del> <span class="free">-> Grátis!</span></p>
+                <p>Tenha em mãos elementos personalizados criados por um programador para usar no Wordpress e customizar ainda mais sua página.</p>
+            </div>
+        </div>
+        
+        <div class="bonus-card">
+            <div class="bonus-card-image">
+                <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/Whiteboard-6.jpg" alt="Bônus 3">
+            </div>
+            <div class="bonus-card-content">
+                <span class="bonus-tag">BÔNUS 3</span>
+                <h4>Scripts de venda persuasivos</h4>
+                <p class="price">Valor: <del>R$37,00</del> <span class="free">-> Grátis!</span></p>
+                <p>Templates de scripts persuasivos para conquistar clientes via DM sem parecer desesperado.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+        <h2 class="section-title">Escolha a Melhor Oferta Para Você</h2>
+        <div class="pricing-container">
+            <div class="pricing-card">
+                <h3><strong>Plano Basic</strong></h3>
+                <p class="price-old">De <del>R$37,00</del> por</p>
+                <p class="price-new">R$10</p>
+                <hr>
+                <ul>
+                    <li><strong>✅ 10 páginas no Canvas</strong></li>
+                </ul>
+                <a href="https://pay.kiwify.com.br/G04FaVy" class="cta-button">Quero a oferta simples</a>
+                <p><strong><span style="color: #ff0000;">ATENÇÃO</span></strong>: Temos uma oferta ainda mais <span style="text-decoration: underline;">VANTAJOSA</span> para você! Veja logo ao lado 👉</p>
+            </div>
+            <div class="pricing-card pro">
+                <h5 class="best-seller-tag"><strong>Mais Vendido</strong></h5>
+                <h3><strong>Plano Pack Pro</strong></h3>
+                <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/mockup-pack-pro.webp" alt="Mockup do Pack Pro" style="max-width:100%;">
+                <p class="price-old">De <del>R$97,00</del> por</p>
+                <p class="price-new">R$37</p>
+                <hr>
+                <ul>
+                    <li><strong>✅ + 100 páginas no Canvas</strong></li>
+                    <li><strong>✅ +3.500 páginas de venda wordpress</strong></li>
+                    <li><strong>✅ Aula de como subir sua primeira página no Canvas</strong></li>
+                    <li><strong>✅ Aula de como subir sua primeira página no Wordpress</strong></li>
+                    <li><strong>✅ Bônus: Pack de banners editáveis</strong></li>
+                    <li><strong>✅ Bônus: Elementos html personalizados</strong></li>
+                    <li><strong>✅ Bônus: Scripts de vendas persuasivos</strong></li>
+                    <li><strong>✅ Acesso Vitalício</strong></li>
+                    <li><strong>✅ Garantia de 15 Dias</strong></li>
+                    <li><strong>✅ Suporte</strong></li>
+                </ul>
+                <a href="https://pay.kiwify.com.br/dqHUDE9" class="cta-button">Acessar os templates</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2 class="section-title"><strong>Perguntas frequentes</strong></h2>
+        <ul class="faq-accordion-list" id="faq-accordion-list">
+            </ul>
+    </section>
+
+    <footer>
+        <p>Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.</p>
+        <p>Todos os direitos reservados a New Age.</p>
+    </footer>
+
+
+    <script>
+      window.pixelId = "684e1e967a664372f08f11d3";
+      var a = document.createElement("script");
+      a.setAttribute("async", "");
+      a.setAttribute("defer", "");
+      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+      document.head.appendChild(a);
+    </script>
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      async
+      defer
+    ></script>
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "s1ivdch14w");
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        /**
+         * LÓGICA DOS CRONÔMETROS DE CONTAGEM REGRESSIVA
+         * Esta função controla múltiplos timers na página.
+         * @param {string} elementId - O ID do elemento HTML que exibirá o timer.
+         * @param {number} minutes - Minutos iniciais.
+         * @param {number} seconds - Segundos iniciais.
+         */
+        function startCountdown(elementId, minutes, seconds) {
+            let totalSeconds = minutes * 60 + seconds;
+            const timerEl = document.getElementById(elementId);
+
+            if (!timerEl) {
+                console.error(`Elemento do timer #${elementId} não encontrado.`);
+                return;
+            }
+
+            const interval = setInterval(() => {
+                if (totalSeconds <= 0) {
+                    clearInterval(interval);
+                    timerEl.textContent = "00:00";
+                    return;
+                }
+                
+                totalSeconds--;
+                
+                const min = String(Math.floor(totalSeconds / 60)).padStart(2, '0');
+                const sec = String(totalSeconds % 60).padStart(2, '0');
+                
+                timerEl.textContent = `${min}:${sec}`;
+            }, 1000);
+        }
+
+        // Inicia os dois timers da página
+        startCountdown('top-countdown-timer', 12, 34);
+        startCountdown('bonusTimer', 12, 34);
+
+        /**
+         * LÓGICA DO ACORDEÃO DE PERGUNTAS FREQUENTES (FAQ)
+         * Cria e gerencia a funcionalidade de abrir/fechar perguntas.
+         */
+        const faqs = [
+            { pergunta: "Quando recebo acesso?", resposta: "Assim que o pagamento for aprovado, você recebe o link de acesso no seu e-mail em até 5 minutos." },
+            { pergunta: "Preciso saber mexer com design ou saber programar?", resposta: "Não! Nosso pack é justamente pensado para você que não sabe mexer com design nem programação. Por isso oferecemos facilidade com qualidade a um preço extremamente acessível." },
+            { pergunta: "Estou começando do zero, vai funcionar para mim?", resposta: "Sim, você irá receber como bônus duas aulas completas de como usar e editar as páginas no Canvas e Elementor." },
+            { pergunta: "E se eu não gostar?", resposta: "Você tem 15 dias de garantia. Se não curtir, é só pedir reembolso por e-mail que devolvemos 100% do valor." },
+            { pergunta: "Pode ser editado em celular?", resposta: "Sim! Os packs exclusivos para Canvas são 100% editáveis no celular, PC e tablet." },
+            { pergunta: "O site é seguro?", resposta: "O pagamento é realizado através das melhores plataformas de pagamento do mundo. Seus dados são criptografados de acordo com os padrões de segurança do Banco Central. Aqui você está seguro!" }
+        ];
+
+        const faqList = document.getElementById('faq-accordion-list');
+        if (faqList) {
+            faqList.innerHTML = faqs.map((faq, i) => `
+                <li class="faq-accordion-item${i === 0 ? ' open' : ''}">
+                    <button class="faq-accordion-question" aria-expanded="${i === 0 ? 'true' : 'false'}">
+                        ${faq.pergunta}
+                        <span class="faq-accordion-icon">${i === 0 ? '×' : '+'}</span>
+                    </button>
+                    <div class="faq-accordion-answer">${faq.resposta}</div>
+                </li>
+            `).join('');
+
+            document.querySelectorAll('.faq-accordion-question').forEach(button => {
+                button.addEventListener('click', () => {
+                    const item = button.closest('.faq-accordion-item');
+                    const wasOpen = item.classList.contains('open');
+
+                    // Fecha todos os outros itens
+                    document.querySelectorAll('.faq-accordion-item').forEach(otherItem => {
+                        otherItem.classList.remove('open');
+                        otherItem.querySelector('.faq-accordion-question').setAttribute('aria-expanded', 'false');
+                        otherItem.querySelector('.faq-accordion-icon').textContent = '+';
+                    });
+
+                    // Abre o item clicado, se ele não estava aberto
+                    if (!wasOpen) {
+                        item.classList.add('open');
+                        button.setAttribute('aria-expanded', 'true');
+                        button.querySelector('.faq-accordion-icon').textContent = '×';
+                    }
+                });
+            });
+        }
+    });
+    </script>
+</body>
+</html>

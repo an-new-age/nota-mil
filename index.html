@@ -21,6 +21,7 @@
             color: #333;
             /* Garante que o conteúdo não fique escondido atrás da barra do topo */
             padding-top: 60px; /* Espaço para a barra de contagem regressiva */
+            width: 100%;
         }
 
         * {
@@ -59,7 +60,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 16px 0;
+            padding: 16px 0px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.12);
             border: solid red 4px;
         }
@@ -68,7 +69,7 @@
             background: #23233a;
             color: red;
             border-radius: 8px;
-            padding: 6px 18px;
+            padding: 6px 10px;
             margin-left: 18px;
             font-size: 22px;
             font-weight: bold;
@@ -83,7 +84,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
             gap: 24px;
             min-height: 300px;
             width: 100%;
@@ -110,6 +111,8 @@
             max-width: 55%;
             font-family: 'Globals', sans-serif; /* Assumindo uma fonte global */
             text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            font-size: 16px;
+            font-weight: 700;
         }
         
         /* =================================
@@ -188,12 +191,12 @@
             list-style: none;
             padding-left: 0;
             max-width: 75%;
-            margin: 8px auto 0;
+            margin: 16px 8px;
         }
         
         .features-list li {
             font-family: 'Roboto', sans-serif;
-            font-size: 20px;
+            font-size: 16px;
             color: #212529;
             display: flex;
             align-items: center;
@@ -418,10 +421,10 @@
             display: inline-block;
             background-color: #32A300;
             color: white;
-            padding: 20px 0;
+            padding: 10px 0;
             text-decoration: none;
             font-family: 'Poppins', sans-serif;
-            font-size: 25px;
+            font-size: 20px;
             font-weight: 400;
             text-transform: uppercase;
             border-radius: 15px;
@@ -534,8 +537,8 @@
 
             .countdown-bar-fixed {
                 font-size: 16px; /* Ajustei o valor do JSON que era muito grande */
-                padding: 10px 0;
-                flex-direction: column;
+                padding: 10px 0px;
+                flex-direction: row;
                 gap: 5px;
             }
 
@@ -546,11 +549,12 @@
             }
 
             .hero-section h1 {
-                font-size: 54px;
+                font-size: 34px;
                 max-width: 100%;
             }
             .hero-section p {
-                max-width: 100%;
+                max-width: 90%;
+
             }
 
             .testimonials-carousel img {
@@ -586,23 +590,19 @@
     </div>
 
     <section class="hero-section">
-        <h1>3500 páginas para a Bio do seu Insta: Edite em 6 minutos no Canva!</h1>
+        <h1>Descubra o Segredo dos Aprovados! Apostila em PDF com 1000 Questões REAIS de Colégios Militares</h1>
         <iframe class="video-iframe" id="panda-16cd35f8-eadf-4fa4-ab35-01c54e07a38b" src="https://player-vz-c7fd9a01-916.tv.pandavideo.com.br/embed/?v=16cd35f8-eadf-4fa4-ab35-01c54e07a38b" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen=true width="720" height="460" fetchpriority="high"></iframe>
-        <p>Tenha acesso a um pack completo com 3500 páginas para a sua biografia do instagram: Edite em 6 minutos com o Canva!</p>
+        <p>Entender as questões da Banca é o Diferencial para a Aprovação do seu Filho(a). Por isso reunimos 1000 Questões Recentes de Provas Anteriores com Gabarito: 500 de Matemática (separadas por assunto) e 500 de Língua Portuguesa.</p>
     </section>
 
-    <section class="image-showcase-section container">
-        <p class="section-title">
-            <span>São mais de 3.500 páginas profissionais de alta conversão</span> no wordpress pra você fazer o que quiser!
-        </p>
-        <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/Whiteboard-_13_.webp" alt="Demonstração de páginas de alta conversão" class="showcase-image">
-    </section>
-
-    <section class="image-showcase-section container">
-        <p class="section-title">
-            <span>Você também vai receber mais de 100 páginas de biografia editáveis no Canvas</span>
-        </p>
-        <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/Whiteboard-_12_.webp" alt="Demonstração de páginas editáveis no Canva" class="showcase-image rounded-image">
+    <section class="container">
+        <h2>O que você irá receber?</h2>
+        <ul class="features-list">
+            <li><i class="fas fa-check-circle icon"></i><strong>1000 Questões de matemática e português de Colégios Militares - 6º ano</strong></li>
+            <li><i class="fas fa-check-circle icon"></i><strong>Gabarito com as respostas</strong></li>
+            <li><i class="fas fa-check-circle icon"></i><strong>Resolução comentada e didática com o passo a passo de cada questão</strong></li>
+            <li><i class="fas fa-check-circle icon"></i><strong>Garantia incondicional de 7 dias</strong></li>
+        </ul>
     </section>
 
     <section class="features-section container">
@@ -614,49 +614,134 @@
             <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/depoimento-4-1.jpeg" alt="Depoimento 4">
             <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/depoimento-1.jpeg" alt="Depoimento 5">
         </div>
-
-        <h3>O que você irá receber?</h3>
-        <ul class="features-list">
-            <li><i class="fas fa-check-circle icon"></i><strong>+ de 100 templates</strong> de páginas editáveis diversos no canvas</li>
-            <li><i class="fas fa-check-circle icon"></i><strong>+ 3.500 páginas editáveis no wordpress</strong> para qualquer profissão</li>
-            <li><i class="fas fa-check-circle icon"></i><strong>Aulas</strong> de como você vai sair do zero e subir sua própria página de bio em 6 minutos</li>
-        </ul>
         
         <div class="advantages-grid">
             <div class="advantage-card">
-                <i class="far fa-clock icon"></i>
-                <h4>Economize tempo</h4>
-                <p>Pare de gastar horas tentando montar sua página do zero. Tenha soluções prontas!</p>
+                <i class="fas fa-star icon"></i>
+                <h4>Certeza do caminho</h4>
+                <p>Tenha certeza que está guiando seu filho pelo melhor caminho rumo a aprovação na prova!</p>
             </div>
             <div class="advantage-card">
                 <i class="fas fa-heart icon"></i>
-                <h4>Aumente o Engajamento</h4>
-                <p>Conquiste maior interação com artes profissionais e impactantes.</p>
+                <h4>Questões Selecionadas</h4>
+                <p>Questões selecionadas a dedo - seu filho vai treinar com questões e respostas que já caíram, isso aumenta muito a chance de aprovação!</p>
             </div>
             <div class="advantage-card">
                 <i class="fas fa-surprise icon"></i>
-                <h4>Design Impactante</h4>
-                <p>Entregue com orgulho uma página linda que demonstra seu alto nível profissional.</p>
+                <h4>Tenha Vantagem</h4>
+                <p>Dê ao seu filho a Vantagem em cima dos outros candidatos, ele vai conhecer os padrões de questões que geralmente caem na prova e entender a mente da banca que formula as questões.</p>
             </div>
             <div class="advantage-card">
-                <i class="fas fa-star icon"></i>
-                <h4>Tenha destaque</h4>
-                <p>Enquanto outros se apresentam com um Instagram desorganizado, você terá sua própria página profissional.</p>
+                <i class="fas fa-book icon"></i>
+                <h4>Ideal para crianças a partir do 4º ano</h4>
+                <p>Feito especialmente para alunos que já têm base escolar e querem se preparar com antecedência pro 6º ano do Colégio Militar.</p>
             </div>
              <div class="advantage-card">
-                <i class="fas fa-download icon"></i>
-                <h4>Atualizações Permanentes</h4>
-                <p>Tenha acesso a todos os novos templates e melhorias sem custos adicionais.</p>
-            </div>
-            <div class="advantage-card">
                 <i class="fab fa-whatsapp icon"></i>
                 <h4>Suporte Completo</h4>
-                <p>Conte com nossa ajuda para dúvidas sobre como utilizar e personalizar qualquer página.</p>
+                <p>Conte com nosso suporte pelo whatsapp para qualquer dúvida que tiver com o material!</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-clock icon"></i>
+                <h4>Economize tempo</h4>
+                <p>Conteúdo focado e atualizado com provas mais recentes, sem distrações ou materiais desnecessários.</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-lock icon"></i>
+                <h4>Pagamento 100% seguro</h4>
+                <p>Seu pagamento vai ser processado por um getway de pagamentos autorizado pelo Banco Central com certificação do Governo Brasileiro.</p>
+            </div>
+            <div class="advantage-card">
+                <i class="fas fa-download icon"></i>
+                <h4>Acesso a atualizações futuras</h4>
+                <p>Tenha acesso aos novos itens adicionados de forma 100% gratuita!</p>
             </div>
         </div>
     </section>
 
+    <section class="container">
+        <h2>Para quem são essas questões?</h2>
+        <ul class="features-list">
+            <li>
+                <i class="fas fa-check-circle icon"></i>
+                <strong>Famílias que querem uma preparação de alto nível, mas de forma mais acessível</strong>
+            </li>
+            <li>
+                <i class="fas fa-check-circle icon"></i>
+                <strong>Pais que buscam uma educação de excelência, com disciplina e valores</strong>
+            </li>
+            <li>
+                <i class="fas fa-check-circle icon"></i>
+                <strong>Crianças e pré-adolescentes com grande potencial, que só precisam do direcionamento certo</strong>
+            </li>
+            <li>
+                <i class="fas fa-check-circle icon"></i>
+                <strong>Pais que se envolvem e estudam junto com os filhos em casa</strong>
+            </li>
+            <li>
+                <i class="fas fa-check-circle icon"></i>
+                <strong>Alunos que entendem que a prática e a resolução de provas antigas é o caminho para a aprovação</strong>
+            </li>
+        </ul>
+    </section>
+
     <section class="bonus-section container">
+        <style>
+            .ff {
+                font-weight: bold;
+                font-size: 18px;
+                background-color: #EEE;
+                padding: 20%;
+                color: #1c7d21;
+                border-radius: 12px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+            }
+            .ff1::before, .ff2::before, .ff3::before, .ff4::before {
+                content: "1";
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #000000;
+            }
+            .ff2::before {
+                content: "2";
+            }
+            .ff3::before {
+                content: "3";
+            }
+            .ff4::before {
+                content: "4";
+            }
+        </style>
+        <div class="bonus-card" style="margin-top: -80px;">
+            <h3 class="bonus-title">
+                <strong style="color: white;">
+                    Esses são os <span>4 passos rápidos</span> para acessar as questões:
+                </strong>
+            </h3>
+            <span style="
+                margin-top: -32px;
+                text-align: center; 
+                color: green; 
+                background-color: white;
+                padding: 8px 16px; border-radius: 5px; font-weight: bold;
+            ">Tudo em 5 minutos</span>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; height: auto;">
+                <span class="ff ff1">Sente em um lugar confortável</span>
+                <span class="ff ff2">Acesse as questões no e-mail</span>
+                <span class="ff ff3">Abra os PDFs</span>
+                <span class="ff ff4">Comece a responder</span>
+            </div>
+        </div>
+    </section>
+    
+    <section class="bonus-section container" style="margin-top: -90px;">
         <h3 class="bonus-title">
             <strong>
                 <span>3 Bônus Incríveis</span> para quem comprar nos próximos
@@ -670,9 +755,9 @@
             </div>
             <div class="bonus-card-content">
                 <span class="bonus-tag">BÔNUS 1</span>
-                <h4>Pack de banners editáveis para sua página</h4>
+                <h4>Como não cair nas pegadinhas das questões</h4>
                 <p class="price">Valor: <del>R$37,00</del> <span class="free">-> Grátis!</span></p>
-                <p>Tenha em mãos banners que vão ajudar você a estruturar sua página e montá-la do jeitinho que quiser com imagens gratuitas.</p>
+                <p>Guia teórico de tipos de pegadinhas que a Banca costuma por na prova para seu filho ficar atento.</p>
             </div>
         </div>
         
@@ -681,9 +766,9 @@
                 </div>
             <div class="bonus-card-content">
                 <span class="bonus-tag">BÔNUS 2</span>
-                <h4>Elementos HTML personalizados para Wordpress</h4>
+                <h4>Mapa de conteúdo</h4>
                 <p class="price">Valor: <del>R$37,00</del> <span class="free">-> Grátis!</span></p>
-                <p>Tenha em mãos elementos personalizados criados por um programador para usar no Wordpress e customizar ainda mais sua página.</p>
+                <p>Veja quais são os assuntos de português e matemática que mais caem na prova, para poder acertar mais questões de maneira inteligente!</p>
             </div>
         </div>
         
@@ -693,9 +778,9 @@
             </div>
             <div class="bonus-card-content">
                 <span class="bonus-tag">BÔNUS 3</span>
-                <h4>Scripts de venda persuasivos</h4>
+                <h4>Como fazer seu filho gostar do estudo</h4>
                 <p class="price">Valor: <del>R$37,00</del> <span class="free">-> Grátis!</span></p>
-                <p>Templates de scripts persuasivos para conquistar clientes via DM sem parecer desesperado.</p>
+                <p>Guia embasado em psicologia com truques simples para fazer seu filho ter interesse e aprender a gostar de estudar!</p>
             </div>
         </div>
     </section>
@@ -709,69 +794,77 @@
                 <p class="price-new">R$10</p>
                 <hr>
                 <ul>
-                    <li><strong>✅ 10 páginas no Canvas</strong></li>
+                    <li><strong>✅ 10 Questões Colégios Militares - 6º ano - Exército</strong></li>
                 </ul>
                 <a href="https://pay.kiwify.com.br/G04FaVy" class="cta-button">Quero a oferta simples</a>
-                <p><strong><span style="color: #ff0000;">ATENÇÃO</span></strong>: Temos uma oferta ainda mais <span style="text-decoration: underline;">VANTAJOSA</span> para você! Veja logo ao lado 👉</p>
+                <p style="font-weight: 900;">
+                    <strong>
+                        <span style="color: #ff0000;">MAS ANTES DE COMPRAR...</span>
+                    </strong> <br/>
+                    Temos uma oferta <span style="color: rgb(212, 148, 28);">AINDA MAIS</span> vantajosa para você!
+                    Leve mais e pague menos com nossa <span style="color: rgb(212, 148, 28);">MEGA OFERTA!</span>👇
+                </p>
             </div>
             <div class="pricing-card pro">
                 <h5 class="best-seller-tag"><strong>Mais Vendido</strong></h5>
                 <h3><strong>Plano Pack Pro</strong></h3>
                 <img src="https://vencendoojogo.site/wp-content/uploads/2025/06/mockup-pack-pro.webp" alt="Mockup do Pack Pro" style="max-width:100%;">
-                <p class="price-old">De <del>R$97,00</del> por</p>
+                <p class="price-old">De <del>R$87,00</del> por</p>
                 <p class="price-new">R$37</p>
                 <hr>
                 <ul>
-                    <li><strong>✅ + 100 páginas no Canvas</strong></li>
-                    <li><strong>✅ +3.500 páginas de venda wordpress</strong></li>
-                    <li><strong>✅ Aula de como subir sua primeira página no Canvas</strong></li>
-                    <li><strong>✅ Aula de como subir sua primeira página no Wordpress</strong></li>
-                    <li><strong>✅ Bônus: Pack de banners editáveis</strong></li>
-                    <li><strong>✅ Bônus: Elementos html personalizados</strong></li>
-                    <li><strong>✅ Bônus: Scripts de vendas persuasivos</strong></li>
-                    <li><strong>✅ Acesso Vitalício</strong></li>
+                    <li><strong>✅ 1000 Questões Colégios Militares - 6º ano - Exército</strong></li>
+                    <li><strong>✅ Como não cair nas pegadinhas das questões - entenda a mente da Banca</strong></li>
+                    <li><strong>✅ Mapa de conteúdo dos assuntos de português e matemática que mais caem na prova</strong></li>
+                    <li><strong>✅ Como os pais podem fazer o filho ter motivação pra gostar de estudar</strong></li>
+                    <li><strong>✅ Acesso as atualizações</strong></li>
                     <li><strong>✅ Garantia de 15 Dias</strong></li>
-                    <li><strong>✅ Suporte</strong></li>
+                    <li><strong>✅ Suporte por Whatsapp</strong></li>
                 </ul>
-                <a href="https://pay.kiwify.com.br/dqHUDE9" class="cta-button">Acessar os templates</a>
+                <a href="https://pay.kiwify.com.br/dqHUDE9" class="cta-button">Acessar as Questões</a>
             </div>
         </div>
     </section>
 
+    <div class="bonus-card" style="margin: 16px; padding: 32px; text-align: center;">
+        <h2>Rolou a página toda pro final?</h2>
+        <h3>Então leia esse resumo...</h3>
+        <div style="text-align: left;"> 
+            <p>O que você está vendo aqui é a chave da aprovação do seu filho, a oportunidade dele treinar e se destacar com um material de qualidade para o dia da prova.</p> 
+            <br/>
+            <p>São questões prontas e respondidas com explicação passo a passo com a didática cuidadosamente pensada para uma criança a partir do quarto ano entender e fixar da melhor maneira possível!</p>
+            <br/>
+            <p>E o melhor: você leva tudo isso por apenas R$10, com garantia de 14 dias para testar sem risco.</p>
+            <br/>
+            <p>Ao finalizar a compra, o acesso de todos os seus produtos chega direto no seu e-mail.</p>
+        </div>
+    </div>
+
+    <section style="text-align: center; margin-top: 48px; margin-bottom: 48px; padding: 16px">
+        <h1 style="font-size: 32px;">Você não tem nada a perder!</h1>
+        <br/>
+        <h3>Garantia incondicional de 14 dias!</h3>
+        <br/>
+        <img
+         style="width: auto; height: 360px;"
+         src="assets/selo-garantia.png" alt="Selo de garantia" /> 
+         <br/>
+         <p style="font-weight: 900;">Tenho plena confiança na qualidade e utilidade do nosso material de questões, e para provar isso vou te dar 14 dias de garantia incondicional. Simples, direta e honesta:</p>
+         <br/>
+         <p>Se dentro de 14 dias após sua compra, você não estiver completamente satisfeito(a) com este material, basta nos enviar um e-mail solicitando o reembolso. Devolveremos 100% do seu investimento, sem perguntas e sem complicações.</p>
+         <br/>
+         <p>Adquira agora mesmo com total segurança, sabendo que seu filho terá duas semanas completas para estudar com nosso material!</p>
+    </section>
+
     <section class="faq-section">
         <h2 class="section-title"><strong>Perguntas frequentes</strong></h2>
-        <ul class="faq-accordion-list" id="faq-accordion-list">
-            </ul>
+        <ul class="faq-accordion-list" id="faq-accordion-list"></ul>
     </section>
 
     <footer>
         <p>Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook.</p>
         <p>Todos os direitos reservados a New Age.</p>
     </footer>
-
-
-    <script>
-      window.pixelId = "684e1e967a664372f08f11d3";
-      var a = document.createElement("script");
-      a.setAttribute("async", "");
-      a.setAttribute("defer", "");
-      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-      document.head.appendChild(a);
-    </script>
-    <script
-      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-      data-utmify-prevent-xcod-sck
-      data-utmify-prevent-subids
-      async
-      defer
-    ></script>
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "s1ivdch14w");
-    </script>
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -817,12 +910,34 @@
          * Cria e gerencia a funcionalidade de abrir/fechar perguntas.
          */
         const faqs = [
-            { pergunta: "Quando recebo acesso?", resposta: "Assim que o pagamento for aprovado, você recebe o link de acesso no seu e-mail em até 5 minutos." },
-            { pergunta: "Preciso saber mexer com design ou saber programar?", resposta: "Não! Nosso pack é justamente pensado para você que não sabe mexer com design nem programação. Por isso oferecemos facilidade com qualidade a um preço extremamente acessível." },
-            { pergunta: "Estou começando do zero, vai funcionar para mim?", resposta: "Sim, você irá receber como bônus duas aulas completas de como usar e editar as páginas no Canvas e Elementor." },
-            { pergunta: "E se eu não gostar?", resposta: "Você tem 15 dias de garantia. Se não curtir, é só pedir reembolso por e-mail que devolvemos 100% do valor." },
-            { pergunta: "Pode ser editado em celular?", resposta: "Sim! Os packs exclusivos para Canvas são 100% editáveis no celular, PC e tablet." },
-            { pergunta: "O site é seguro?", resposta: "O pagamento é realizado através das melhores plataformas de pagamento do mundo. Seus dados são criptografados de acordo com os padrões de segurança do Banco Central. Aqui você está seguro!" }
+            { 
+                pergunta: "O material está atualizado?", 
+                resposta: "Sim, a seleção das questões foi feita com base nas provas mais recentes, garantindo que o conteúdo esteja alinhado com os temas atuais." 
+            },
+            { 
+                pergunta: "A apostila é indicada para qual série?", 
+                resposta: "A apostila foi desenvolvida para crianças a partir do 4º ano do ensino fundamental, que estão se preparando para o ingresso no 6º ano dos Colégios Militares." 
+            },
+            { 
+                pergunta: "Como recebo o material?", 
+                resposta: "Assim que a compra for confirmada, você recebe o acesso aos itens diretamente no seu e-mail, podendo baixar e usar imediatamente." 
+            },
+            { 
+                pergunta: "Posso imprimir?", 
+                resposta: "Claro! O material está em formato PDF, ideal para ser impresso ou utilizado em qualquer dispositivo eletrônico." 
+            },
+            { 
+                pergunta: "As questões foram elaboradas pelo Colégio Militar?", 
+                resposta: "Sim! As 1000 questões foram retiradas de provas anteriores aplicadas nos Colégios Militares, proporcionando um treino fiel ao que realmente cai na prova." 
+            },
+            { 
+                pergunta: "O conteúdo é separado por disciplinas?", 
+                resposta: "Sim, as questões estão organizadas por disciplina — português e matemática — para facilitar o estudo por assunto." 
+            },
+            { 
+                pergunta: "É necessário algum conhecimento prévio?", 
+                resposta: "A criança deve ter no mínimo noções básicas do conteúdo do 4º ano e 5º ano, já que as questões acompanham o nível exigido nos concursos para o 6º ano." 
+            },
         ];
 
         const faqList = document.getElementById('faq-accordion-list');

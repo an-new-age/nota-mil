@@ -759,6 +759,32 @@
             height: 60vh;
             border-radius: 30px;
         }
+
+        .video-facade {
+            position: relative;
+            cursor: pointer;
+            display: inline-block; /* Ajuste conforme seu layout */
+        }
+
+        .video-thumbnail {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            opacity: 0.85;
+        }
+
+        .video-facade:hover .video-play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 1;
+        }
     </style>
     <script type="text/javascript">
         (function(c,l,a,r,i,t,y){
@@ -783,6 +809,30 @@
         a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
         document.head.appendChild(a);
       </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        const facade = document.getElementById('video-hero-facade');
+        const playerContainer = document.getElementById('video-player-container');
+
+        if (facade) {
+            facade.addEventListener('click', function() {
+            // Cria a tag de vídeo dinamicamente
+            const videoHTML = `
+                <video class="video-hero" controls autoplay playsinline preload="none">
+                    <source src="assets/vsl_1.mp4" type="video/mp4">
+                    Seu navegador não suporta o vídeo.
+                </video>
+            `;
+
+            // Insere o vídeo no container
+            playerContainer.innerHTML = videoHTML;
+
+            // Remove a fachada para não ocupar mais espaço
+            facade.style.display = 'none';
+            }, { once: true }); // O evento só vai disparar uma vez
+        }
+        });
+      </script>
 </head>
 <body>
     <div class="countdown-bar-fixed">
@@ -792,9 +842,12 @@
 
     <section class="hero-section">
         <h1>Descubra a <span style="color: rgb(74, 245, 74);">metodologia dos Aprovados!</span> Apostila em PDF com 500 Questões REAIS de Colégios Militares</h1>
-        <video class="video-hero" controls autoplay >
-            <source src="assets/vsl_1.mp4" type="video/mp4">
-        </video>
+        <div class="video-facade" id="video-hero-facade">
+            <img src="assets/vsl-thumb.jpg" alt="Capa do vídeo de apresentação" class="video-thumbnail">
+            <svg class="video-play-button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="80px" height="80px"><path d="M8 5v14l11-7z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+        </div>
+
+        <div id="video-player-container"></div>
         <p>Entender as questões da Banca é o Diferencial para a Aprovação do seu Filho(a). Por isso reunimos mais de 500 Provas de Matemática Anteriores, sendo 400 delas com gabarito e 100 delas com resolução comentada passo a passo com a didática feita para uma criança a partir do quarto ano do ensino fundamental!</p>
     </section>
 

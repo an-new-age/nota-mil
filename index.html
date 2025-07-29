@@ -7,8 +7,11 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Implementar preload para recursos críticos -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;600;700&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style">
+    <!-- Carregar CSS de forma assíncrona -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
 
     <style>
         /* =================================
@@ -756,7 +759,7 @@
 
         .video-hero {
             width: auto;
-            height: 40vh;
+            height: 50vh;
             border-radius: 30px;
         }
     </style>
@@ -795,11 +798,10 @@
         <video class="video-hero"
             controls
             autoplay
-            muted
             playsinline
             poster="assets/vsl-thumb.jpg"
             preload="metadata">
-            <source src="assets/vsl_1.mp4" type="video/mp4">
+            <source src="assets/vsl_2.mp4" type="video/mp4">
             Seu navegador não suporta o formato de vídeo.
         </video>
         <p>Entender as questões da Banca é o Diferencial para a Aprovação do seu Filho(a). Por isso reunimos mais de 500 Provas de Matemática Anteriores, sendo 400 delas com gabarito e 100 delas com resolução comentada passo a passo com a didática feita para uma criança a partir do quarto ano do ensino fundamental!</p>
@@ -1128,7 +1130,7 @@
         
         <div class="bonus-card">
             <div class="bonus-card-image">
-                <img src="assets/pegadinha.png" alt="Bônus 1">
+                <img loading="lazy" src="assets/pegadinha.jpg" alt="Bônus 1">
             </div>
             <div class="bonus-card-content">
                 <span class="bonus-tag">BÔNUS 1</span>
@@ -1140,7 +1142,7 @@
         
         <div class="bonus-card">
             <div class="bonus-card-image">
-                <img src="assets/mapa-mental.webp" alt="Bônus 2">
+                <img loading="lazy" src="assets/mapa-mental.webp" alt="Bônus 2">
             </div>
             <div class="bonus-card-content">
                 <span class="bonus-tag">BÔNUS 2</span>
@@ -1152,7 +1154,7 @@
         
         <div class="bonus-card">
             <div class="bonus-card-image">
-                <img src="assets/fml-flz.webp" alt="Bônus 3">
+                <img loading="lazy" src="assets/fml-flz.webp" alt="Bônus 3">
             </div>
             <div class="bonus-card-content">
                 <span class="bonus-tag">BÔNUS 3</span>
@@ -1186,8 +1188,8 @@
             <div class="pricing-card pro">
                 <h5 class="best-seller-tag"><strong>Mais Vendido</strong></h5>
                 <h3><strong>Plano Vip</strong></h3>
-                <img src="assets/menino-mapa-mental.png" alt="Mockup do Pack Pro" style="max-width: 80%; margin: auto; border-radius: 16px;">
-                <!-- <img src="assets/vip-plan.png" alt="Mockup do Pack Pro" style="max-width:100%; border-radius: 16px;"> -->
+                <img loading="lazy" src="assets/menino-mapa-mental.jpg" alt="Mockup do Pack Pro" style="max-width: 80%; margin: auto; border-radius: 16px;">
+                <!-- <img loading="lazy" src="assets/vip-plan.png" alt="Mockup do Pack Pro" style="max-width:100%; border-radius: 16px;"> -->
                 <p class="price-old">De <del>R$87,00</del> por</p>
                 <p class="price-new">R$37</p>
                 <hr>
@@ -1225,7 +1227,7 @@
         <br/>
         <h3>Garantia incondicional de 14 dias!</h3>
         <br/>
-        <img
+        <img loading="lazy"
          style="width: auto; height: 360px;"
          src="assets/selo-garantia.png" alt="Selo de garantia" /> 
          <br/>

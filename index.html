@@ -765,6 +765,39 @@
             width: auto;
             height: 50vh;
             border-radius: 30px;
+            border: #0047AB 2px solid;
+        }
+
+        .play-player {
+            position: absolute;
+            z-index: 9999;
+            background-color: #0047ab7e;
+            width: 250px;
+            height: 150px;
+            left: 50%;
+            top: 50%;
+            border-radius: 10px;
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+            animation: linear infinite reverse playPlayer 1s;
+        }
+        @keyframes playPlayer {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            } 
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            } 
+        }
+
+        .play-player > .icon {
+            font-size: 36px;
         }
     </style>
     <script type="text/javascript">
@@ -799,15 +832,23 @@
 
     <section class="hero-section">
         <h1>Descubra o <span style="color: rgb(74, 245, 74);">segredo dos Aprovados!</span> Apostila em PDF com 500 Questões de Colégios Militares</h1>
-        <video class="video-hero"
-            controls
-            autoplay
-            playsinline
-            poster="assets/vsl-thumb.jpg"
-            preload="metadata">
-            <source src="assets/vsl_2.mp4" type="video/mp4">
-            Seu navegador não suporta o formato de vídeo.
-        </video>
+        <div class="video-container">
+            <div class="play-player">
+                <p>Seu video começou</p>
+                <p class="icon">📢</p>
+                <p>Clique para ouvir</p>
+            </div>
+            <video class="video-hero"
+                controls
+                autoplay
+                muted
+                playsinline
+                poster="assets/happy-men.webp"
+                preload="metadata">
+                <source src="assets/vsl_2.mp4" type="video/mp4">
+                Seu navegador não suporta o formato de vídeo.
+            </video>
+        </div>
         <p>Quer ver seu filho(a) passar no Colégio Militar? Mais de 500 questões, atualizadas e organizadas para facilitar o estudo.</span></p>
         <a href="#vipPlanCTA" class="cta-button">Acessar as Questões</a>
     </section>
